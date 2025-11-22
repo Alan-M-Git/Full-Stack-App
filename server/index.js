@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 
 const app = express()
@@ -6,7 +7,7 @@ const path = require('path')
 
 const db = require('./queries')
 
-const PORT = 9001
+const PORT = process.env.PORT || 9001
 
 //MIDDLEWARE
 app.use(express.json())

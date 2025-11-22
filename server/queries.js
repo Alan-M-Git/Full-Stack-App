@@ -1,15 +1,14 @@
 //Connect to postgres using node-postgres package
 
+require('dotenv').config()
 const POOL = require('pg').Pool
 
 const pool = new POOL({
-    user: 'me',
-    host: 'localhost',
-    database: 'favlinks',
-    password: 'password',
-    port: 5432
-
-
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT
 })
 
 //CREATE all the functions that will be the request handless in the express server
