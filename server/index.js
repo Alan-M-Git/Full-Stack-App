@@ -9,6 +9,8 @@ const db = require('./queries')
 const PORT = 9001
 
 //MIDDLEWARE
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 //host react app as static files
 app.use(express.static(path.resolve(__dirname, '../client/dist')))
@@ -17,24 +19,23 @@ app.use(express.static(path.resolve(__dirname, '../client/dist')))
 //STARTING ROUTES
 
 app.get('/', (req, res) => {
-//work here
     res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'))
 
 })
 
-app.get('/test', (req, res) => {
-    //work here? see if the tutorial mentions it it might be a placeholder. If so delete this method.
+// app.get('/test', (req, res) => {
     
- })
+//  })
 
 //CRUD
 //CREATE
+app.post('/new', db.createLink)
 //READ
 app.get('/links', db.getLinks)
 //UPDATE
+app.put('/links/:id', db.updateLink)
 //DELETE
-
-
+app.delete('/links/:id', db.deleteLink)
 
 
 
