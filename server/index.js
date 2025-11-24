@@ -41,8 +41,10 @@ app.delete('/links/:id', db.deleteLink)
 
 
 
-//STARTING EXPRESS ON OUR PORT
-app.listen(PORT, ()=>{
-    console.log(`The app is running on port ${PORT}.`)
-})
+// //STARTING EXPRESS ON OUR PORT
+// app.listen(PORT, ()=>{
+//     console.log(`The app is running on port ${PORT}.`)
+// })
 
+//This works on Vercel
+module.exports = app
